@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil - HITEMA</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    {% include 'navbar.html' %}
+    
+    {% include 'banniere.html' %}
+    
+    <div class="container">
+        <div class="hero-section">
+            <h2 class="hero-title">Système de Gestion Sakila</h2>
+            <p class="hero-subtitle">Explorez notre base de données complète d'informations géographiques</p>
+        </div>
+        
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-icon cities-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                        <circle cx="12" cy="10" r="3"/>
+                    </svg>
+                </div>
+                <h3 class="card-title">Villes</h3>
+                <p class="card-description">Explorez les villes référencées dans notre système géographique</p>
+                <a href="{% url 'city_list' %}" class="card-btn">Voir les Villes</a>
+            </div>
+            
+            <div class="card">
+                <div class="card-icon countries-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="2" y1="12" x2="22" y2="12"/>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                    </svg>
+                </div>
+                <h3 class="card-title">Pays</h3>
+                <p class="card-description">Consultez la liste complète des pays dans notre base de données</p>
+                <a href="{% url 'country_list' %}" class="card-btn">Voir les Pays</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
