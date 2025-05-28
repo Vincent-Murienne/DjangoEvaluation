@@ -1,0 +1,35 @@
+services:
+  db:
+    container_name: db
+    image: mysql:8.4.4
+    environment:
+      MYSQL_DATABASE: sakila
+      MYSQL_ROOT_PASSWORD: Hitema2025
+    ports:
+      - "3306:3306"
+    volumes:
+      - volume_mysql:/var/lib/mysql
+
+  web:
+    container_name: django
+    build: .
+    restart: always
+    command: >
+      sh -c "python manage.py makemigrations &&
+            python manage.py migrate &&
+            python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - DB_NAME=sakila
+      - DB_USER=root
+      - DB_PASSWORD=Hitema2025
+      - DB_HOST=db
+      - DB_PORT=3306
+
+volumes:
+  volume_mysql:
