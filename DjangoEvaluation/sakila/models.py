@@ -19,7 +19,9 @@ class City(models.Model):
     city = models.CharField(max_length=100)
     country = models.ForeignKey(Country, on_delete=models.CASCADE)
     last_update = models.DateField()
-
+    capital = models.BooleanField(default=False)
+    picture = models.BinaryField(null=True, blank=True)  # Pour stocker les images
+    
     class Meta:
         db_table = 'city'
         managed = False
