@@ -326,39 +326,88 @@ body {
     opacity: 0.5;
 }
 
-/* Buttons */
-.back-button {
-    display: flex;
-    justify-content: center;
-    margin-top: 2rem;
+/* Bouton de retour flottant */
+.floating-back-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    opacity: 0.9;
+    transition: var(--transition);
 }
 
-.btn-secondary {
+.floating-back-button:hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.btn-floating {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
     background: white;
     color: var(--text-secondary);
     text-decoration: none;
-    padding: 0.75rem 2rem;
+    padding: 0.75rem 1.5rem;
     border-radius: var(--border-radius);
     font-weight: 500;
     transition: var(--transition);
     border: 2px solid var(--border-color);
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-lg);
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.95);
 }
 
-.btn-secondary:hover {
+.btn-floating:hover {
     background: var(--primary-color);
     color: white;
     border-color: var(--primary-color);
-    transform: translateY(-1px);
-    box-shadow: var(--shadow-md);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
-.btn-secondary svg {
+.btn-floating svg {
     width: 18px;
     height: 18px;
+    transition: var(--transition);
+}
+
+.btn-floating:hover svg {
+    transform: translateX(-2px);
+}
+
+/* Version responsive */
+@media (max-width: 768px) {
+    .floating-back-button {
+        top: 15px;
+        left: 15px;
+    }
+    
+    .btn-floating {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+    
+    .btn-floating svg {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+/* Animation d'apparition */
+.floating-back-button {
+    animation: fadeInSlide 0.3s ease-out;
+}
+
+@keyframes fadeInSlide {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 0.9;
+        transform: translateX(0);
+    }
 }
 
 /* Responsive Design */
