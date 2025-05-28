@@ -8,8 +8,6 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
-    {% include 'navbar.html' %}
-    
     <div class="container">
         <div class="page-header">
             <h2 class="page-title">
@@ -104,85 +102,5 @@
             </a>
         </div>
     </div>
-
-    <style>
-        .filter-buttons {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .btn-filter {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 20px;
-            background: #f8f9fa;
-            color: #495057;
-            text-decoration: none;
-            border-radius: 6px;
-            border: 2px solid #dee2e6;
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-        
-        .btn-filter:hover {
-            background: #e9ecef;
-            border-color: #adb5bd;
-            transform: translateY(-1px);
-        }
-        
-        .btn-filter.active {
-            background: #007bff;
-            color: white;
-            border-color: #007bff;
-        }
-        
-        .btn-filter svg {
-            width: 16px;
-            height: 16px;
-        }
-        
-        .capital-badge {
-            background: #ffd700;
-            color: #856404;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: bold;
-        }
-        
-        .not-capital {
-            color: #6c757d;
-        }
-        
-        .btn-detail {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 6px 12px;
-            background: #17a2b8;
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            font-size: 14px;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-detail:hover {
-            background: #138496;
-            transform: translateY(-1px);
-        }
-        
-        .btn-detail svg {
-            width: 14px;
-            height: 14px;
-        }
-        
-        .actions-cell {
-            text-align: center;
-        }
-    </style>
 </body>
 </html>
